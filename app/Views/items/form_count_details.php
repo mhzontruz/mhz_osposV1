@@ -1,0 +1,150 @@
+<?php
+/**
+ * @var object $item_info
+ * @var array $stock_locations
+ * @var int|null $stock_location
+ * @var array $item_quantities
+ * @var int|float|string $initial_quantity
+ * @var array $inventory_data
+ * @var array $employee_names
+ */
+?>
+
+<?= form_open('items', ['id' => 'item_form', 'class' => 'form-horizontal']) ?>
+    <fieldset id="count_item_basic_info">
+
+        <div class="form-group form-group-sm">
+            <?= form_label(lang('Items.item_number'), 'name', ['class' => 'control-label col-xs-3']) ?>
+            <div class="col-xs-8">
+                <div class="input-group">
+                    <span class="input-group-addon input-sm"><span class="glyphicon glyphicon-barcode"></span></span>
+                    <?= form_input([
+                        'name'     => 'item_number',
+                        'id'       => 'item_number',
+                        'class'    => 'form-control input-sm',
+                        'disabled' => '',
+                        'value'    => $item_info->item_number
+                    ]) ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <?= form_label(lang('Items.name'), 'name', ['class' => 'control-label col-xs-3']) ?>
+            <div class="col-xs-8">
+                <?= form_input([
+                    'name'     => 'name',
+                    'id'       => 'name',
+                    'class'    => 'form-control input-sm',
+                    'disabled' => '',
+                    'value'    => $item_info->name
+                ]) ?>
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <?= form_label(lang('Items.category'), 'category', ['class' => 'control-label col-xs-3']) ?>
+            <div class="col-xs-8">
+                <div class="input-group">
+                    <span class="input-group-addon input-sm"><span class="glyphicon glyphicon-tag"></span></span>
+                    <?= form_input([
+                        'name'     => 'category',
+                        'id'       => 'category',
+                        'class'    => 'form-control input-sm',
+                        'disabled' => '',
+                        'value'    => $item_info->category
+                    ]) ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <?= form_label(lang('Items.stock_location'), 'stock_location', ['class' => 'control-label col-xs-3']) ?>
+            <div class="col-xs-8">
+                <?= form_dropdown('stock_location', $stock_locations, $stock_location, ['onchange' => 'display_stock(this.value);', 'class' => 'form-control']) ?>
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <?= form_label(lang('Items.current_quantity'), 'quantity', ['class' => 'control-label col-xs-3']) ?>
+            <div class="col-xs-4">
+                <?= form_input([
+                    'name'     => 'quantity',
+                    'id'       => 'quantity',
+                    'class'    => 'form-control input-sm',
+                    'disabled' => '',
+                    'value'    => to_quantity_decimals((string) $initial_quantity)
+                ]) ?>
+            </div>
+        </div>
+
+    </fieldset>
+<?= form_close() ?>
+
+<table id="items_count_details" class="table table-striped table-hover">
+    <thead>
+        <tr style="background-color: #999 !important;">
+            <th colspan="4"><?= lang('Items.inventory_data_tracking') ?></th>
+        </tr>
+        <tr>
+            <th style="width: 30%;"><?= lang('Items.inventory_date') ?></th>
+            <th style="width: 20%;"><?= lang('Items.inventory_employee') ?></th>
+            <th style="width: 20%;"><?= lang('Items.inventory_in_out_quantity') ?></th>
+            <th style="width: 30%;"><?= lang('Items.inventory_remarks') ?></th>
+        </tr>
+    </thead>
+    <tbody id="inventory_result"></tbody>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        display_stock(<?= json_encode($stock_location ?? key(esc($stock_locations, 'raw'))) ?>);
+    });
+
+    function display_stock(location_id) {
+        const item_quantities = <?= json_encode(esc($item_quantities, 'raw')) ?>;
+        const quantity = item_quantities[location_id];
+        const formattedQuantity = quantity === undefined || quantity === null || quantity === '' || quantity === false
+            ? 0
+            : parseFloat(quantity);
+        document.getElementById("quantity").value = formattedQuantity.toFixed(<?= quantity_decimals() ?>);
+
+        const inventory_data = <?= json_encode(esc($inventory_data, 'raw')) ?>;
+        const employee_data = <?= json_encode(esc($employee_names, 'raw')) ?>;
+
+        const table = document.getElementById("inventory_result");
+
+        // Remove old query from tbody
+        const rowCount = table.rows.length;
+        for (let index = rowCount; index > 0; index--) {
+            table.deleteRow(index - 1);
+        }
+
+        // Add new query to tbody
+        for (let index = 0; index < inventory_data.length; index++) {
+            const data = inventory_data[index];
+            if (data['trans_location'] == location_id) {
+                const tr = document.createElement('tr');
+
+                let td = document.createElement('td');
+                td.appendChild(document.createTextNode(data['trans_date']));
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(employee_data[index]));
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(parseFloat(data['trans_inventory']).toFixed(<?= quantity_decimals() ?>)));
+                td.setAttribute("style", "text-align: center");
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(data['trans_comment']));
+                tr.appendChild(td);
+
+                table.appendChild(tr);
+            }
+        }
+    }
+</script>
