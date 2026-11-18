@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Barcode ist ein Pflichtfeld.',
     'one_or_multiple'                    => 'Artikel',
     'pack_name'                          => 'Paketname',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Menge pro Packung',
     'quantity'                           => 'Menge',
     'quantity_number'                    => 'Menge muss eine Zahl sein.',

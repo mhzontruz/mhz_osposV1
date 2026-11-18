@@ -352,12 +352,12 @@
         </div>
 
         <div class="form-group form-group-sm">
-            <?= form_label(lang('Items.image'), 'items_image', ['class' => 'control-label col-xs-3']) ?>
+            <?= form_label(lang('Items.picture'), 'items_image', ['class' => 'control-label col-xs-3']) ?>
             <div class="col-xs-8">
                 <div class="fileinput <?= $logo_exists ? 'fileinput-exists' : 'fileinput-new' ?>" data-provides="fileinput">
                     <div class="fileinput-new thumbnail" style="width: 100px; height: 100px;"></div>
                     <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 100px; max-height: 100px;">
-                        <img data-src="holder.js/100%x100%" alt="<?= lang('Items.image') ?>"
+                        <img data-src="holder.js/100%x100%" alt="<?= lang('Items.picture') ?>"
                             src="<?= $image_path ?>"
                             style="max-height: 100%; max-width: 100%;">
                     </div>
@@ -365,7 +365,7 @@
                         <span class="btn btn-default btn-sm btn-file">
                             <span class="fileinput-new"><?= lang('Items.select_image') ?></span>
                             <span class="fileinput-exists"><?= lang('Items.change_image') ?></span>
-                            <input type="file" name="items_image" accept="image/*">
+                            <input type="file" name="items_image" accept="image/*" capture="environment">
                         </span>
                         <a href="#" class="btn btn-default btn-sm fileinput-exists" data-dismiss="fileinput"><?= lang('Items.remove_image') ?></a>
                     </div>

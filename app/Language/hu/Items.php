@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'UPC/EAN/ISBN kötelező mező',
     'one_or_multiple'                    => 'termék(ek)',
     'pack_name'                          => '',
+    'picture'                            => '',
     'qty_per_pack'                       => '',
     'quantity'                           => 'Mennyiség',
     'quantity_number'                    => 'A mennyiségnek számnak kell lennie',

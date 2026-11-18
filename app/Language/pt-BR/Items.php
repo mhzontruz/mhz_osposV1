@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Cod. Barra é um campo obrigatório.',
     'one_or_multiple'                    => '',
     'pack_name'                          => 'Nome do pacote',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Quantidade por embalagem',
     'quantity'                           => 'Quantidade',
     'quantity_number'                    => 'Quantidade deve ser um número.',

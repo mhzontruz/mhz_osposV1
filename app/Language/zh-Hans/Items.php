@@ -80,6 +80,7 @@ return [
     'number_required'                    => '',
     'one_or_multiple'                    => '產品',
     'pack_name'                          => '',
+    'picture'                            => '',
     'qty_per_pack'                       => '',
     'quantity'                           => '數量',
     'quantity_number'                    => '數量必需是數值',

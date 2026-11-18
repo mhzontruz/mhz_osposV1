@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'خانەی باڕکۆد پێویستە.',
     'one_or_multiple'                    => 'ئایتم(ەکان)',
     'pack_name'                          => 'ناوی پاکەت',
+    'picture'                            => '',
     'qty_per_pack'                       => 'چەندێتی(ژمارە-بڕ) بۆ هەر پاکەتێک',
     'quantity'                           => 'بڕ',
     'quantity_number'                    => 'چەندێتی دەبێت ژمارە بێت.',

@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Штрих-код - обязательное поле.',
     'one_or_multiple'                    => 'товар(ов)',
     'pack_name'                          => 'Название упаковки',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Количество в упаковке',
     'quantity'                           => 'Количество',
     'quantity_number'                    => 'Количество должно быть числом.',

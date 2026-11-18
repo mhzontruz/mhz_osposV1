@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Musíte zadat čárový kód.',
     'one_or_multiple'                    => 'Položky',
     'pack_name'                          => '',
+    'picture'                            => '',
     'qty_per_pack'                       => '',
     'quantity'                           => 'Množství',
     'quantity_number'                    => 'Množství musí být číslo.',

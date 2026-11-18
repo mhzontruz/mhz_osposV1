@@ -11,13 +11,23 @@
 
 <?php if (ENVIRONMENT == 'development' || get_cookie('debug') == 'true' || request()->getGet('debug') == 'true') : ?>
     <!-- inject:reportsgraphical:debug:css -->
+    <link rel="stylesheet" href="resources/css/chartist-c19aedb81a.css">
+    <link rel="stylesheet" href="resources/css/chartist-plugin-tooltip-2e0ec92e60.css">
     <!-- endinject -->
     <!-- inject:reportsgraphical:debug:js -->
+    <script src="resources/js/chartist-8a7ecb4445.js"></script>
+    <script src="resources/js/chartist-plugin-axistitle-80a1198058.js"></script>
+    <script src="resources/js/chartist-plugin-barlabels-4165273742.js"></script>
+    <script src="resources/js/chartist-plugin-pointlabels-0a1ab6aa4e.js"></script>
+    <script src="resources/js/chartist-plugin-tooltip-116cb48831.js"></script>
+    <script src="resources/js/hide_cost_profit-e8bd953ca5.js"></script>
     <!-- endinject -->
 <?php else : ?>
     <!-- inject:reportsgraphical:prod:css -->
+    <link rel="stylesheet" href="resources/reportsgraphical-1327e6cbee.min.css">
     <!-- endinject -->
     <!-- inject:reportsgraphical:prod:js -->
+    <script src="resources/reportsgraphical-487b3febb1.min.js"></script>
     <!-- endinject -->
 <?php endif; ?>
 

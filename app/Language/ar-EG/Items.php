@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'مطلوب UPC/EAN/ISBN رقم الباركود.',
     'one_or_multiple'                    => 'صنف/أصناف',
     'pack_name'                          => 'اسم الحزمة',
+    'picture'                            => '',
     'qty_per_pack'                       => 'العدد بكل الحزمة',
     'quantity'                           => 'الكمية',
     'quantity_number'                    => 'الكمية يجب أن تكون رقم.',

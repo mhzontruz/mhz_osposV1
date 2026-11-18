@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Msimbo wa Mstari ni kiashiria kinachohitajika.',
     'one_or_multiple'                    => 'bidhaa',
     'pack_name'                          => 'Jina la Pakiti',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Kiasi kwa kila pakiti',
     'quantity'                           => 'Kiasi',
     'quantity_number'                    => 'Kiasi lazima kiwe namba.',

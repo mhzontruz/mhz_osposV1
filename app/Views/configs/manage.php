@@ -2,13 +2,18 @@
 
 <?php if (ENVIRONMENT == 'development' || get_cookie('debug') == 'true' || request()->getGet('debug') == 'true') : ?>
     <!-- inject:config:debug:css -->
+    <link rel="stylesheet" href="resources/css/bootstrap-tagsinput-5a6d46a06c.css">
     <!-- endinject -->
     <!-- inject:config:debug:js -->
+    <script src="resources/js/bootstrap-tagsinput-855a7c7670.js"></script>
+    <script src="resources/js/clipboard-908af414ab.js"></script>
     <!-- endinject -->
 <?php else : ?>
     <!-- inject:config:prod:css -->
+    <link rel="stylesheet" href="resources/config-9a2c464101.min.css">
     <!-- endinject -->
     <!-- inject:config:prod:js -->
+    <script src="resources/config-a52b2510c2.min.js"></script>
     <!-- endinject -->
 <?php endif; ?>
 

@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Barkod alanı zorunludur.',
     'one_or_multiple'                    => 'ürün',
     'pack_name'                          => 'Paket adı',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Paket başına miktar',
     'quantity'                           => 'Adet',
     'quantity_number'                    => 'Adet sayı olmalıdır.',

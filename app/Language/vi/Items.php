@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Trường Mã vạch là bắt buộc.',
     'one_or_multiple'                    => 'hàng hóa',
     'pack_name'                          => 'Tên gói',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Số lượng mỗi gói',
     'quantity'                           => 'Số lượng',
     'quantity_number'                    => 'Số lượng phải là dạng số.',

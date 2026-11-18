@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'UPC/EAN/ISBN es un campo requerido.',
     'one_or_multiple'                    => 'articulo(s)',
     'pack_name'                          => 'Nombre del Paquete',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Cantidad por Paquete',
     'quantity'                           => 'Cantidad en Stock',
     'quantity_number'                    => 'Cantidad debe ser número.',

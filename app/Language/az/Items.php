@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Barkod tələb olunan sahədir.',
     'one_or_multiple'                    => 'mal(lar)',
     'pack_name'                          => 'Paket Adı',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Paket üzrə miqdar',
     'quantity'                           => 'Miqdar',
     'quantity_number'                    => 'Miqdar rəqəm olmalıdır.',

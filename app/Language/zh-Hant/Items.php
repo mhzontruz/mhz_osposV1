@@ -80,6 +80,7 @@ return [
     'number_required'                    => '條形碼是必填字段。',
     'one_or_multiple'                    => '產品',
     'pack_name'                          => '包裝名稱',
+    'picture'                            => '',
     'qty_per_pack'                       => '每包數量',
     'quantity'                           => '數量',
     'quantity_number'                    => '數量必需是數值.',

@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Streckkod är ett obligatoriskt fält.',
     'one_or_multiple'                    => 'Artikel',
     'pack_name'                          => 'Förpackningsnamn',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Antal per förpackning',
     'quantity'                           => 'Kvantitet',
     'quantity_number'                    => 'Antal måste vara ett nummer.',

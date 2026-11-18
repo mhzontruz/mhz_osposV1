@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Il Codice a barre è un campo obbligatorio.',
     'one_or_multiple'                    => 'articolo/i',
     'pack_name'                          => 'Nome confezione',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Quantità per confezione',
     'quantity'                           => 'Quantità',
     'quantity_number'                    => 'Quantità deve essere un numero.',

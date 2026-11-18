@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'ברקוד הינו שדה חובה.',
     'one_or_multiple'                    => 'פריט(ים)',
     'pack_name'                          => 'שם החבילה',
+    'picture'                            => '',
     'qty_per_pack'                       => 'כמות לחבילה',
     'quantity'                           => 'כמות',
     'quantity_number'                    => 'שדה הכמות חייב להיות מספר.',

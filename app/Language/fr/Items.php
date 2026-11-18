@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Code à barres est un champ requis.',
     'one_or_multiple'                    => 'article(s)',
     'pack_name'                          => 'Nom de l\'ensemble',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Quantité par ensemble',
     'quantity'                           => 'Quantité',
     'quantity_number'                    => 'La quantité doit être un nombre.',

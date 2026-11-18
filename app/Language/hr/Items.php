@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'UPC/EAN/ISBN je potreban',
     'one_or_multiple'                    => 'Artikal(i)',
     'pack_name'                          => '',
+    'picture'                            => '',
     'qty_per_pack'                       => '',
     'quantity'                           => 'Količina',
     'quantity_number'                    => 'Količina mora biti broj',

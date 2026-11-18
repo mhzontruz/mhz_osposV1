@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Streepjescode is een vereist veld.',
     'one_or_multiple'                    => 'artikel(en)',
     'pack_name'                          => 'Verpakkingnaam',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Hoeveelheid per verpakking',
     'quantity'                           => 'Hoeveelheid',
     'quantity_number'                    => 'Hoeveelheid moet een getal zijn.',

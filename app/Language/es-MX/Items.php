@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'El código de barras es obligatorio.',
     'one_or_multiple'                    => 'Articulos',
     'pack_name'                          => 'Nombre del paquete',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Cantidad por paquete',
     'quantity'                           => 'Cantidad',
     'quantity_number'                    => 'Cantidad debe ser número.',

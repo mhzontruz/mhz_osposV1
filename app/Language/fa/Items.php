@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'بارکد یک فیلد مورد نیاز است.',
     'one_or_multiple'                    => 'مورد (ها)',
     'pack_name'                          => 'نام بسته',
+    'picture'                            => '',
     'qty_per_pack'                       => 'مقدار در هر بسته',
     'quantity'                           => 'تعداد',
     'quantity_number'                    => 'تعداد باید یک عدد باشد.',

@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Barcode is een verplicht veld.',
     'one_or_multiple'                    => 'product(en) verwijderd',
     'pack_name'                          => 'Pak Naam',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Aantal per pak',
     'quantity'                           => 'Stock',
     'quantity_number'                    => 'Aantal moet een getal zijn.',

@@ -440,7 +440,7 @@ function getItemsManageTableHeaders(): string
         $headers[] = ['tax_percents' => lang('Items.tax_percents'), 'sortable' => false];
     }
 
-    $headers[] = ['item_pic' => lang('Items.image'), 'sortable' => false];
+    $headers[] = ['item_pic' => lang('Items.picture'), 'sortable' => false];
 
     foreach ($definitionsWithTypes as $definitionId => $definitionInfo) {
         $headers[] = [$definitionId => $definitionInfo['name'], 'sortable' => true];

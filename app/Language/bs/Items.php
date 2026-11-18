@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Barkod je obavezno polje.',
     'one_or_multiple'                    => 'artikal(i)',
     'pack_name'                          => 'Naziv pakovanja',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Količina po pakovanju',
     'quantity'                           => 'Količina',
     'quantity_number'                    => 'Količina mora biti broj.',

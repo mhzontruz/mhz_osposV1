@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'Barcode harus diisi.',
     'one_or_multiple'                    => 'Item Barang',
     'pack_name'                          => 'Nama paket',
+    'picture'                            => '',
     'qty_per_pack'                       => 'Jumlah per paket',
     'quantity'                           => 'Jumlah',
     'quantity_number'                    => 'Jumlah harus berupa angka.',

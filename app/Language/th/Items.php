@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'จำเป็นต้องระบุบาร์โค้ด',
     'one_or_multiple'                    => 'สินค้า(s)',
     'pack_name'                          => 'ชื่อแพ็ค',
+    'picture'                            => '',
     'qty_per_pack'                       => 'ปริมาณต่อแพ็ค',
     'quantity'                           => 'จำนวน',
     'quantity_number'                    => 'จำนวนต้องเป็นตัวเลข',

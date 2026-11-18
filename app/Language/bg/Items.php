@@ -80,6 +80,7 @@ return [
     'number_required'                    => '',
     'one_or_multiple'                    => '',
     'pack_name'                          => '',
+    'picture'                            => '',
     'qty_per_pack'                       => '',
     'quantity'                           => '',
     'quantity_number'                    => '',

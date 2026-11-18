@@ -80,6 +80,7 @@ return [
     'number_required'                    => 'ត្រូវការលេខកូតចាំបាច់។',
     'one_or_multiple'                    => 'ទំនិញ',
     'pack_name'                          => 'កញ្ចប់ឈ្មោះ',
+    'picture'                            => '',
     'qty_per_pack'                       => 'បរិមាណក្នុងមួយកញ្ចប់',
     'quantity'                           => 'បរិមាណ',
     'quantity_number'                    => 'បរិមាណត្រូវតែជាលេខ។',
