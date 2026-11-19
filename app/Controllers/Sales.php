@@ -68,6 +68,14 @@ class Sales extends Secure_Controller
 
     public function getIndex(): ResponseInterface|string
     {
+        $this->session->set('sales_v2', false);
+        $this->session->set('allow_temp_items', 1);
+        return $this->reload();
+    }
+
+    public function getV2(): ResponseInterface|string
+    {
+        $this->session->set('sales_v2', true);
         $this->session->set('allow_temp_items', 1);
         return $this->reload();
     }
@@ -1395,6 +1403,22 @@ class Sales extends Secure_Controller
         $data['quote_number'] = $this->sale_lib->get_quote_number();
         $data['work_order_number'] = $this->sale_lib->get_work_order_number();
         $data['keyboardShortcuts'] = $this->sale_lib->getKeyShortcuts();
+        $data['sales_v2'] = (bool) $this->session->get('sales_v2');
+
+        if ($data['sales_v2']) {
+            $data['sales_v2_items'] = $this->item->get_all()->getResult();
+            $categories = [];
+
+            foreach ($data['sales_v2_items'] as $item) {
+                $category = (string) ($item->category ?? '');
+                if ($category !== '') {
+                    $categories[$category] = ($categories[$category] ?? 0) + 1;
+                }
+            }
+
+            ksort($categories, SORT_NATURAL | SORT_FLAG_CASE);
+            $data['sales_v2_categories'] = $categories;
+        }
 
         // TODO: the if/else set below should be converted to a switch
         if ($this->sale_lib->get_mode() == 'sale_invoice') {    // TODO: Duplicated code.
@@ -1414,7 +1438,7 @@ class Sales extends Secure_Controller
             $data['customer_required'] = lang('Sales.customer_optional');
         }
 
-        return view("sales/register", $data);
+        return view('sales/register', $data);
     }
 
     /**

@@ -11,8 +11,10 @@ class App extends BaseConfig
      * This is the code version of the Open Source Point of Sale you're running.
      *
      * @var string
-     */
-    public string $application_version = '3.4.4-dev';
+     
+     *public string $application_version = '3.4.4-dev';
+    */
+    public string $application_version = '3.4.4';
 
     /**
      * This is the commit hash for the version you are currently using.

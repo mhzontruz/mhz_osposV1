@@ -15,7 +15,10 @@ use Config\Database;
 class OSPOS extends BaseConfig
 {
     public array $settings = [];
-    public string $commit_sha1 = 'dev';
+    /**
+     * public string $commit_sha1 = 'dev';
+     */
+    public string $commit_sha1 = 'MHz';
     private CacheInterface $cache;
 
     public function __construct()

@@ -21,7 +21,7 @@ $request = Services::request();
 <head>
     <meta charset="utf-8">
     <base href="<?= base_url() ?>">
-    <title><?= esc($config['company']) . ' | OSPOS | ' . esc(lang('Login.login')) ?></title>
+    <title><?= esc($config['company']) . ' | OSPOS edited by MHz | ' . esc(lang('Login.login')) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">

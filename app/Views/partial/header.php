@@ -17,7 +17,7 @@ $request = Services::request();
 <head>
     <meta charset="utf-8">
     <base href="<?= base_url() ?>">
-    <title><?= esc($config['company']) . ' | ' . lang('Common.powered_by', ['app' => 'OSPOS', 'version' => esc(config('App')->application_version)]) ?></title>
+    <title><?= esc($config['company']) . ' | ' . lang('Common.powered_by', ['app' => 'OSPOS', 'version' => esc(config('App')->application_version)]) . ' | Edited By MHz' ?></title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <?php $theme = (empty($config['theme']) ? 'flatly' : esc($config['theme'])); ?>
@@ -135,12 +135,20 @@ $request = Services::request();
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <?php foreach ($allowed_modules as $module): ?>
-                            <li class="<?= $module->module_id == $request->getUri()->getSegment(1) ? 'active' : '' ?>">
+                            <li class="<?= (string) $module->module_id === $request->getUri()->getSegment(1) && !((string) $module->module_id === 'sales' && $request->getUri()->getSegment(2) === 'v2') ? 'active' : '' ?>">
                                 <a href="<?= base_url($module->module_id) ?>" title="<?= lang("Module.$module->module_id") ?>" class="menu-icon">
                                     <img src="<?= base_url("images/menubar/$module->module_id.svg") ?>" style="border: none;" alt="Module Icon"><br>
                                     <?= lang('Module.' . $module->module_id) ?>
                                 </a>
                             </li>
+                            <?php if ((string) $module->module_id === 'sales'): ?>
+                                <li class="<?= $request->getUri()->getSegment(2) === 'v2' ? 'active' : '' ?>">
+                                    <a href="<?= base_url('sales/v2') ?>" title="Sales V2" class="menu-icon">
+                                        <img src="<?= base_url('images/menubar/sales.svg') ?>" style="border: none;" alt="Sales V2 Icon"><br>
+                                        Sales V2
+                                    </a>
+                                </li>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
                 </div>

@@ -65,6 +65,238 @@ if (isset($success)) {
 helper('url');
 ?>
 
+<?php if (!empty($sales_v2)): ?>
+    <style>
+        .sales-v2-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(420px, 1fr);
+            gap: 12px;
+            align-items: start;
+        }
+
+        .sales-v2-products {
+            display: grid;
+            grid-template-columns: 150px minmax(0, 1fr);
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .sales-v2-categories,
+        .sales-v2-catalog {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .sales-v2-categories button {
+            display: block;
+            width: 100%;
+            margin-bottom: 6px;
+            text-align: left;
+            white-space: normal;
+        }
+
+        .sales-v2-catalog-search {
+            margin-bottom: 12px;
+        }
+
+        .sales-v2-product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+            gap: 10px;
+        }
+
+        .sales-v2-item-form {
+            min-width: 0;
+            height: 100%;
+            margin: 0;
+        }
+
+        .sales-v2-product {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            overflow: hidden;
+            color: #222;
+            text-align: left;
+            white-space: normal;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+        }
+
+        .sales-v2-product:hover,
+        .sales-v2-product:focus {
+            border-color: #c2185b;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+        }
+
+        .sales-v2-product img,
+        .sales-v2-product-placeholder {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            background: #f3f3f3;
+        }
+
+        .sales-v2-product-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 12px;
+        }
+
+        .sales-v2-product-name,
+        .sales-v2-product-price {
+            display: block;
+            padding: 5px 7px 0;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+        .sales-v2-product-name {
+            min-height: 35px;
+        }
+
+        .sales-v2-product-price {
+            padding-bottom: 7px;
+            font-weight: 600;
+        }
+
+        .sales-v2-order {
+            min-width: 0;
+        }
+
+        .sales-v2-order #register_wrapper {
+            float: none;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .sales-v2-order #register_wrapper #register {
+            min-width: 650px;
+        }
+
+        .sales-v2-order #overall_sale {
+            float: none;
+            width: 100%;
+            margin-left: 0;
+            text-align: left;
+        }
+
+        .sales-v2-order #overall_sale .panel-body {
+            padding: 12px;
+        }
+
+        .sales-v2-order #mode_form > .panel-body > ul,
+        .sales-v2-order #add_item_form > .panel-body > ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sales-v2-order #mode_form > .panel-body > ul > li,
+        .sales-v2-order #add_item_form > .panel-body > ul > li {
+            float: none !important;
+            max-width: 100%;
+            margin: 0 !important;
+        }
+
+        .sales-v2-order #mode_form > .panel-body > ul > li.pull-right {
+            margin-left: auto !important;
+        }
+
+        .sales-v2-order #add_item_form > .panel-body > ul > li.first_li {
+            flex: 1 0 100%;
+        }
+
+        .sales-v2-order #add_item_form > .panel-body > ul > li:nth-child(2) {
+            flex: 1 1 220px;
+        }
+
+        .sales-v2-order #add_item_form #item {
+            width: 100%;
+            min-width: 0;
+        }
+
+        .sales-v2-order .sales_table_100 {
+            font-size: 12px;
+        }
+
+        @media (max-width: 1100px) {
+            .sales-v2-layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sales-v2-products {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .sales-v2-categories {
+                display: flex;
+                gap: 6px;
+                overflow-x: auto;
+            }
+
+            .sales-v2-categories button {
+                width: auto;
+                flex: 0 0 auto;
+                margin: 0;
+            }
+        }
+    </style>
+
+    <div class="sales-v2-layout">
+        <section class="sales-v2-products">
+            <aside class="sales-v2-categories" aria-label="Item categories">
+                <button type="button" class="btn btn-default active sales-v2-category" data-category="">
+                    All Items <small><?= count($sales_v2_items) ?></small>
+                </button>
+                <?php foreach ($sales_v2_categories as $category => $count): ?>
+                    <button type="button" class="btn btn-default sales-v2-category" data-category="<?= esc($category, 'attr') ?>">
+                        <?= esc($category) ?> <small><?= esc((string) $count) ?></small>
+                    </button>
+                <?php endforeach; ?>
+            </aside>
+
+            <main class="sales-v2-catalog">
+                <input type="search" class="form-control sales-v2-catalog-search" id="sales-v2-search" placeholder="Search items">
+                <div class="sales-v2-product-grid">
+                    <?php foreach ($sales_v2_items as $catalogItem): ?>
+                        <?php
+                        $itemName = (string) $catalogItem->name;
+                        $itemCategory = (string) ($catalogItem->category ?? '');
+                        $itemImage = !empty($catalogItem->pic_filename)
+                            ? site_url('items/PicThumb/' . rawurlencode($catalogItem->pic_filename))
+                            : null;
+                        ?>
+                        <?= form_open('sales/add', ['class' => 'sales-v2-item-form', 'data-search' => strtolower($itemName . ' ' . $itemCategory), 'data-category' => $itemCategory]) ?>
+                            <input type="hidden" name="item" value="<?= esc((string) $catalogItem->item_id, 'attr') ?>">
+                            <button type="submit" class="sales-v2-product">
+                                <?php if ($itemImage !== null): ?>
+                                    <img src="<?= esc($itemImage, 'attr') ?>" alt="<?= esc($itemName, 'attr') ?>">
+                                <?php else: ?>
+                                    <span class="sales-v2-product-placeholder">pict not available</span>
+                                <?php endif; ?>
+                                <span class="sales-v2-product-name"><?= esc($itemName) ?></span>
+                                <span class="sales-v2-product-price"><?= to_currency($catalogItem->unit_price) ?></span>
+                            </button>
+                        <?= form_close() ?>
+                    <?php endforeach; ?>
+                </div>
+            </main>
+        </section>
+        <section class="sales-v2-order">
+<?php endif; ?>
+
 <div id="register_wrapper">
 
     <!-- Top register controls -->
@@ -608,6 +840,42 @@ helper('url');
         ?>
     </div>
 </div>
+
+<?php if (!empty($sales_v2)): ?>
+        </section>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.sales-v2-product img').on('error', function() {
+                $('<span>', {
+                    class: 'sales-v2-product-placeholder',
+                    text: 'pict not available'
+                }).insertBefore(this);
+                $(this).remove();
+            });
+
+            const filterProducts = function() {
+                const search = $('#sales-v2-search').val().toLowerCase();
+                const category = $('.sales-v2-category.active').data('category');
+
+                $('.sales-v2-item-form').each(function() {
+                    const matchesSearch = $(this).data('search').indexOf(search) !== -1;
+                    const matchesCategory = !category || $(this).data('category') === category;
+                    $(this).toggle(matchesSearch && matchesCategory);
+                });
+            };
+
+            $('.sales-v2-category').click(function() {
+                $('.sales-v2-category').removeClass('active');
+                $(this).addClass('active');
+                filterProducts();
+            });
+
+            $('#sales-v2-search').on('input', filterProducts);
+        });
+    </script>
+<?php endif; ?>
 
 <script type="text/javascript">
     const keyboardShortcuts = <?= json_encode($keyboardShortcuts ?? []) ?>;
